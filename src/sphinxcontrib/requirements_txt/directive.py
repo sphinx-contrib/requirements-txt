@@ -3,6 +3,7 @@ r"""Directive
 """
 import os
 import re
+from glob import glob
 
 from docutils import nodes
 from docutils.nodes import Node
@@ -25,9 +26,9 @@ def parse(file: str) -> list[str]:
     :type file: str
     :rtype: list[str]
     """
+    items = []
     with open(file) as f:
         lines = f.readlines()
-    items = []
     for line in lines:
         if line.startswith("#!"):
             continue
@@ -59,14 +60,17 @@ class RequirementsDirective(SphinxDirective):
     r"""Requirementsdirective."""
 
     has_content = True
+    optional_arguments = 0
+    option_spec = {
+        "title": str,
+        "template": str,
+    }
 
     def run(self) -> list[Node]:
         r"""Run.
 
         :rtype: list[Node]
         """
-        content = self.content[0]
-        fmt = self.options.get("format", self.config["requirements_format"])
         template = self.options.get("template")
         if isinstance(self.state._renderer, SphinxRenderer):
             template_ext = "md"
@@ -78,16 +82,26 @@ class RequirementsDirective(SphinxDirective):
             )
         with open(template) as f:
             template_text = f.read()
-        title = os.path.basename(content).split(os.path.extsep)[0]
-        if fmt.find("{title}") >= 0:
-            title = fmt.format(title=title)
-        else:
-            title = fmt
+
+        content = self.content[0]
         path = self.content.items[0][0]
-        items = parse(os.path.join(os.path.dirname(path), content))
-        new_content = Template(template_text).render(title=title, items=items)
-        new_content = StringList(new_content.splitlines(), source="")
+        file = os.path.join(os.path.dirname(path), content)
+        fmt = self.options.get("title", self.config["requirements_title"])
+        new_contents = []
+        for filename in glob(file):
+            title = os.path.basename(filename).split(os.path.extsep)[0]
+            if fmt.find("{title}") >= 0:
+                title = fmt.format(title=title)
+            else:
+                title = fmt
+            items = parse(filename)
+            new_content = Template(template_text).render(
+                title=title, items=items
+            )
+            new_contents += [new_content]
+        final_content = "\n\n".join(new_contents)
+        string_list = StringList(final_content.splitlines(), source="")
         node = nodes.Element()
-        nested_parse_with_titles(self.state, new_content, node)
+        nested_parse_with_titles(self.state, string_list, node)
 
         return node.children

@@ -100,11 +100,12 @@ template: /the/path/of/template.j2
 ```
 ````
 
-`title` can contains `{title}`, which will be converted to the base name of
-requirement file. Such as `requirements/dev.txt` will be converted to `dev`.
-`template` is a jinja2 file. See [jinja2 syntax](https://docs.jinkan.org/docs/jinja2/templates.html)
-and
-[examples](https://github.com/sphinx-contrib/requirements-txt/blob/main/src/sphinxcontrib/requirements_txt/assets/jinja2).
+- `/the/path/of/requirements.txt` can be a glob expression.
+- `title` can contain `{title}`, which will be converted to the base name of
+  requirement file. Such as `requirements/dev.txt` will be converted to `dev`.
+- `template` is a jinja2 file. See [jinja2 syntax](https://docs.jinkan.org/docs/jinja2/templates.html)
+  and
+  [examples](https://github.com/sphinx-contrib/requirements-txt/blob/main/src/sphinxcontrib/requirements_txt/assets/jinja2).
 
 See
 [![readthedocs](https://shields.io/readthedocs/sphinxcontrib-requirements-txt)](https://sphinxcontrib-requirements-txt.readthedocs.io)

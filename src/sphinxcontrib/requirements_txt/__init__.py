@@ -15,6 +15,6 @@ def setup(app: Sphinx) -> None:
     :rtype: None
     """
     app.add_config_value(
-        name="requirements_format", default="{title}", rebuild="env"
+        name="requirements_title", default="{title}", rebuild="env"
     )
     app.add_directive(name="requirements", cls=RequirementsDirective)
