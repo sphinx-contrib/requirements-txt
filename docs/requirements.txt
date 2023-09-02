@@ -2,4 +2,4 @@
 
 -e .
 myst-parser
-sphinxcontrib-eval
+sphinxcontrib-autofile

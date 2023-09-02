@@ -1,8 +1,7 @@
-# sphinxcontrib.requirements_txt
+# sphinx-requirements-txt
 
-````{eval-rst}
-```{eval-sh}
-cd ..
-scripts/generate-api.md.pl src/*/*/*.py
+```{autofile} ../../src/*/*/*.py
+---
+module:
+---
 ```
-````
