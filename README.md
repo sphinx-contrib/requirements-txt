@@ -1,6 +1,6 @@
 # sphinxcontrib-requirements-txt
 
-[![readthedocs](https://shields.io/readthedocs/sphinx-contrib-requirements-txt)](https://sphinx-contrib-requirements-txt.readthedocs.io)
+[![readthedocs](https://shields.io/readthedocs/sphinxcontrib-requirements-txt)](https://sphinx-contrib-requirements-txt.readthedocs.io)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/sphinx-contrib/requirements-txt/main.svg)](https://results.pre-commit.ci/latest/github/sphinx-contrib/requirements-txt/main)
 [![github/workflow](https://github.com/sphinx-contrib/requirements-txt/actions/workflows/main.yml/badge.svg)](https://github.com/sphinx-contrib/requirements-txt/actions)
 [![codecov](https://codecov.io/gh/sphinx-contrib/requirements-txt/branch/main/graph/badge.svg)](https://codecov.io/gh/sphinx-contrib/requirements-txt)
