@@ -88,7 +88,7 @@ class RequirementsDirective(SphinxDirective):
         file = os.path.join(os.path.dirname(path), content)
         fmt = self.options.get("title", self.config["requirements_title"])
         new_contents = []
-        for filename in glob(file):
+        for filename in glob(file, recursive=True):
             title = os.path.basename(filename).split(os.path.extsep)[0]
             if fmt.find("{title}") >= 0:
                 title = fmt.format(title=title)
