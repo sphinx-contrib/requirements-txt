@@ -14,7 +14,7 @@ class Test:
         result = parse(os.path.join(PATH, "requirements.txt"))
         expected = [
             {},
-            {"text": "Support MyST"},
+            {"text": "Support MyST."},
             {
                 "text": "myst-parser",
                 "other": "",

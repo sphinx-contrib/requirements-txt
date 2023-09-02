@@ -107,6 +107,10 @@ template: /the/path/of/template.j2
   and
   [examples](https://github.com/sphinx-contrib/requirements-txt/blob/main/src/sphinxcontrib/requirements_txt/assets/jinja2).
 
+## Alternatives
+
+- [sphinxcontrib-eval](https://github.com/sphinx-contrib/eval#generate-requirements-document)
+
 See
 [![readthedocs](https://shields.io/readthedocs/sphinxcontrib-requirements-txt)](https://sphinxcontrib-requirements-txt.readthedocs.io)
 to know more.
