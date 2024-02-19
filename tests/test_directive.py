@@ -1,4 +1,5 @@
 r"""Test directive."""
+
 import os
 
 from sphinxcontrib.requirements_txt.directive import parse

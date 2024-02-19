@@ -2,6 +2,7 @@ r"""Configure the Sphinx documentation builder.
 
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
+
 from sphinxcontrib.requirements_txt import (
     __version__ as version,  # type: ignore
 )
